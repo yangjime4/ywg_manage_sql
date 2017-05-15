@@ -1,0 +1,16 @@
+select 
+
+
+wm.market_name,
+sb.boothno,
+sb.boothmodel,
+so.real_name
+ from t_shop_booth sb,
+ t_web_market wm,
+ t_shop s,
+ t_sys_operator so
+ 
+  where (MARKET_DOOR is null or market_street is null) and sb.market_code=10
+  and sb.submarket=wm.submarket
+  and s.booth_id(+)=sb.id
+  and so.login_name(+)=s.create_user

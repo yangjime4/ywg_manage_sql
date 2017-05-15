@@ -1,0 +1,9 @@
+select  t.PRODUCTID as 商铺ID, t.CREATETIME as 创建时间, t.PUBLISHTIME as 开始时间, t.MATURITYTIME as 结束时间, 
+    t.TOTALPRICE as 价格,  t.STATUS as status, t.USER_ID as userid,t.OPERATE_TYPE as 类型,(select o.real_name
+          from T_SYS_OPERATOR o
+         where o.login_name = t.serviceid) as 客服,
+       t.module,(select ou.name
+          from T_OPERATING_USER ou
+         where ou.user_id = t.operate_userid) as 代运营人,s.shop_name as 商铺名称,sb.boothno,m.login_id as 账号
+         from T_AD_OPERATING t,t_shop s,t_shop_booth sb,t_mm_user m
+  where t.productid=s.shop_id and s.booth_id=sb.id and s.user_id=m.user_id and t.MARKET_CODE='10'

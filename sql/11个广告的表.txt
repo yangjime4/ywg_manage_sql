@@ -1,0 +1,12 @@
+1	T_SHOP_MARKET_BRAND 品牌推荐
+2	T_AD_INDUSTRY_USERS 分类排名
+3	T_AD_KEYWORDS	关键字排名
+4	T_AD_KEYWORDS_PICTURE 关键字横幅
+5	t_ad_operating type=2 代运营
+6	t_ad_operating type=3 网上营业执照
+7	t_ad_operating type=4 跨境商铺
+8	t_ad_virtualshop     虚拟商铺
+9	T_AD_INDUSTRY_OTHER  其他广告
+10	T_AD_INDUSTRY_CATEGORY 目录广告/微商铺
+11	T_WEB_EXHIBITION_SHOP 展厅
+

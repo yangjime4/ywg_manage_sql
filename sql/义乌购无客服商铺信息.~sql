@@ -1,0 +1,9 @@
+select s.shop_id, mu.user_id, sb.boothno, s.shop_name, wm.market_name
+  from t_shop s, t_mm_user mu, t_shop_booth sb, t_web_market wm
+ where s.user_id = mu.user_id
+   and s.booth_id = sb.id
+   and sb.submarket = wm.submarket
+   and s.status = 1
+   and s.create_user not in (select login_name from t_sys_operator)
+   and sb.submarket in
+       ('1001', '1003', '1004', '1006', '1007', '1008', '2011', '10011')

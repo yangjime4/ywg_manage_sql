@@ -1,0 +1,11 @@
+select aol.shopid as 店铺id,ou.name as 代运营人,to_date(aol.starttime,'yyyymmddhh24miss') as  开始时间
+from (
+select shopid,count(serviceid) from t_ad_operating_log aol group by shopid having count(serviceid)>=2
+)t left join t_ad_operating_log aol
+on aol.shopid=t.shopid
+left join（
+select productid,max(operate_userid) operate_userid,max(price) price,max(serviceid) serviceid from t_ad_operating   		       
+		        group by productid ） ao
+on t.shopid=ao.productid
+left join t_operating_user ou
+on ao.operate_userid=ou.user_id
